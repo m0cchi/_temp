@@ -1,3 +1,8 @@
+# Error
+```
+sql: Scan error on column index 0: unsupported Scan, storing driver.Value type []uint8 into type *main.User
+```
+
 # resolve dependency
 ```bash
 dep ensure
