@@ -26,10 +26,21 @@ func main() {
 		panic(err.Error())
 	}
 	defer stmt.Close()
-	user := &User{}
+	user := User{}
 	args := map[string]interface{}{"id": 1}
 	err = stmt.Get(user, args)
 	fmt.Println(user)
 	fmt.Println(err)
 
+	stmt, err = db.PrepareNamed(SQL)
+	if err != nil {
+		panic(err.Error())
+	}
+
+	rows, err := stmt.Queryx(args)
+	if rows.Next() {
+		rows.Scan(&user.name)
+	}
+
+	fmt.Println(user)
 }
