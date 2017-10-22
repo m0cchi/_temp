@@ -1,3 +1,7 @@
+# resolve dependency
+```bash
+dep ensure
+```
 # migrate sqlite3
 ```bash
 sqlite3 db.sqlite < migrate_sqlite3.sql
