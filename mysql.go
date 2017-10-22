@@ -31,12 +31,12 @@ func main() {
 	err = stmt.Get(user, args)
 	fmt.Println(user)
 	fmt.Println(err)
-
+	// successful case
 	stmt, err = db.PrepareNamed(SQL)
 	if err != nil {
 		panic(err.Error())
 	}
-
+	
 	rows, err := stmt.Queryx(args)
 	if rows.Next() {
 		rows.Scan(&user.name)
